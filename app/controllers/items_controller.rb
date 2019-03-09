@@ -21,6 +21,22 @@ class ItemsController < ApplicationController
 
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to @item
+  end
+
+  def destoroy
+    @item = Item.find(params[:id])
+    @item.destoroy
+    redirect_to item_path
+  end
+
 private
 
   def item_params
